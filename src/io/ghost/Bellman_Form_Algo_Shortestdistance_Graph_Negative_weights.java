@@ -35,6 +35,7 @@ public class Bellman_Form_Algo_Shortestdistance_Graph_Negative_weights {
             }
         }
 
+        // This is added so that to check if there is any negative cycle is present.
         for (int j = 0; j < edges.length; j++) {
             int src = edges[j][0];
             int des = edges[j][1];
