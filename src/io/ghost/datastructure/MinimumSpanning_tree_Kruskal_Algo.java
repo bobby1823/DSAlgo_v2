@@ -1,5 +1,6 @@
 package io.ghost.datastructure;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,7 +15,7 @@ public class MinimumSpanning_tree_Kruskal_Algo {
         if (p[x] != x) {
             p[x] = find(p[x]);
         }
-        return x;
+        return p[x];
     }
 
     static void union(int x, int y) {
@@ -77,6 +78,7 @@ public class MinimumSpanning_tree_Kruskal_Algo {
         }
         return ans;
     }
+
 }
 
 class Edge implements Comparable<Edge> {
