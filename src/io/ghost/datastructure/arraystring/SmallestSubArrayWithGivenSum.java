@@ -8,8 +8,8 @@ package io.ghost.datastructure.arraystring;
 public class SmallestSubArrayWithGivenSum {
 
     public static void main(String[] args) {
-        int[] arr = {2,3,1,2,4,3};
-        System.out.println("Minimum Length of substring " +smallestSubArraySum(arr, 7));
+        int[] arr = {1, 4, 45, 6, 0, 19};
+        System.out.println("Minimum Length of substring " +smallestSubArraySum(arr, 51));
     }
 
     public static int smallestSubArraySum(int[] arr, int s) {
