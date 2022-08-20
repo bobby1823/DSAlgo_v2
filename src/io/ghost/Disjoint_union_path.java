@@ -43,4 +43,33 @@ public class Disjoint_union_path {
     /**
      * Now we can further optimise the solution by shortening the Virtual Tree. Means by forming Maintaining Rank
      */
+    public int find_v2(int x) {
+        if (x != p[x]) {
+            // getting the parent of p[x] and connect it with
+            p[x] = find_v2(p[x]);
+        }
+        return x;
+    }
+
+    /**
+     * Now we can further optimise the solution by shortening the Virtual Tree. Means by forming Maintaining Rank
+     * meaning. Initially all the elements will be of same rank. Now if both the elements belongs to same rank
+     * then we will randomly choose one parent and increment the rank of chosen element as parent to +1. There by folding
+     * the tree. And reducing the height
+     */
+    public void union_V2(int x, int y) {
+        int a = find_v2(x);
+        int b = find_v2(y);
+
+        if (a == b) return;
+
+        if (rank[a] > rank[b]) {
+            p[b] = a;
+        } else if (rank[a] < rank[b]) {
+            p[a] = b;
+        } else if (rank[a] == rank[b]) {
+            p[b] = a;
+            rank[a]= rank[a] + 1;
+        }
+    }
 }
