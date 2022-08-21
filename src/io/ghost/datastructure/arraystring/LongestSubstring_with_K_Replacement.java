@@ -6,6 +6,15 @@ import java.util.Map;
 /**
  * Given a string with lowercase letters only, if you are allowed to replace no more than ‘k’ letters with any letter,
  * find the length of the longest substring having the same letters after replacement.
+ *
+ *
+ *
+ * Time Complexity #
+ * The time complexity of the above algorithm will be O(N) where ‘N’ is the number of letters in the input string.
+ *
+ * Space Complexity #
+ * As we are expecting only the lower case letters in the input string, we can conclude that the space complexity will
+ * be O(26), to store each letter’s frequency in the HashMap, which is asymptotically equal to O(1)O(1).
  */
 public class LongestSubstring_with_K_Replacement {
 
