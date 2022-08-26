@@ -28,7 +28,7 @@ public class Tree {
         sc = new Scanner(System.in);
         TreeNode root = createTree();
 //        preOrderTraversal(root);
-//        postOrderTraversal(root);
+        postOrderTraversal(root);
 //        printRightMostView(root);
 //        getTopView(root);
 //        getBottomView(root);
@@ -42,7 +42,7 @@ public class Tree {
 //        System.out.println("Floor Value of Binary Tree: " +floorValue_V1(root, 4));
 //        System.out.println("Floor Value of Binary Tree: " +floorValue_V2(root, 7));
 //        System.out.println("Two Sum exist in Binary Tree: "+ checkIfPairPresent(root, 150));
-        verticalOrderTraversal(root);
+//        verticalOrderTraversal(root);
 //        printLeftViewBinaryTree(root);
 //        printLeftMostView(root);
 //        System.out.println(heightOfBT(root));
