@@ -30,22 +30,46 @@ public class Number_of_Island {
 
     public static int numIslands(char[][] grid) {
         int numOfIsland = 0;
-        numIsland_Dfs(grid, 0, 0, numOfIsland);
+
+        for (int k = 0; k < grid.length; k++) {
+            for (int l = 0; l < grid[k].length; l++) {
+                System.out.println("element: " + grid[k][l]);
+
+                // checking for Island
+                if (grid[k][l] == '1') {
+                    numIsland_Dfs(grid, k, l, grid.length, grid[k].length);
+                    numOfIsland += 1;
+                }
+            }
+        }
         return numOfIsland;
     }
 
-    // we will apply DFS here. Will traverse in each element to check 
-    private static void numIsland_Dfs(char[][] grid, int i, int j, int numOfIsland) {
-        if ((i+1 <= grid.length) && (i-1 >= 0) && (j+1 <= grid[0].length) && (j-1 >= 0)
-                && grid[i][j] == '1' ) {
-            numOfIsland += 1;
+    /**
+     * {
+     *                 {'1', '1', '1', '1', '0'},
+     *                 {'1', '1', '0', '1', '0'},
+     *                 {'1', '1', '0', '0', '0'},
+     *                 {'0', '0', '0', '0', '0'}
+     *         }
+     */
+    // we will apply DFS here. Will traverse in each element to check
+    private static void numIsland_Dfs(char[][] grid, int i, int j, int c, int k) {
+        // Pass the Grid matrix dimensions along with method. Since we won't able to get it. Or else Index out of bound
+        // exception
+        if ( i >= c || i < 0 || j >= k || j < 0 || grid[i][j] != '1') {
+            return;
         }
-        grid[i][j] = 2;
-        for (int k = 0; k < grid.length; k++) {
-            for (int l = 0; l < grid[k].length; l++) {
-                System.out.println("element: "+ grid[k][l]);
-                numIsland_Dfs(grid, k, l, numOfIsland);
-            }
-        }
+//        else if (grid[i][j] != '1' ) {
+//            return;
+//        }
+        // visited marked
+        grid[i][j] = '2';
+        System.out.println("element: "+ grid[i][j]);
+
+        numIsland_Dfs(grid, i, j+1, c, k);
+        numIsland_Dfs(grid, i, j-1, c, k);
+        numIsland_Dfs(grid, i-1, j, c, k);
+        numIsland_Dfs(grid, i+1, j, c, k);
     }
 }
