@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class TrappingRainWater {
     public static void main(String[] args) {
-        System.out.println("Rain Water trapped: " + trapWater(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
+        System.out.println("Rain Water trapped: " + trapWaterDynamicProb(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
     }
 
     // Here we use two auxiliary array, left & right, which stores:
@@ -38,14 +38,14 @@ public class TrappingRainWater {
     }
 
     // Here in the stack we will be pushing the index
-    public static int trapWaterUsingStack(int[] arr) {
-        Stack<Integer> stk = new Stack<>();
-        stk.push(0);
-        for (int i = 1; i < arr.length; i++) {
-            while (!stk.isEmpty() && arr[i] > stk.peek()) {
-
-            }
-            stk.push(i);
-        }
-    }
+//    public static int trapWaterUsingStack(int[] arr) {
+//        Stack<Integer> stk = new Stack<>();
+//        stk.push(0);
+//        for (int i = 1; i < arr.length; i++) {
+//            while (!stk.isEmpty() && arr[i] > stk.peek()) {
+//
+//            }
+//            stk.push(i);
+//        }
+//    }
 }
