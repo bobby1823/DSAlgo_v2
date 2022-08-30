@@ -20,11 +20,31 @@ public class ReverseLinkedList {
         list.addNode(5);
         list.addNode(6);
         System.out.println(list.head);
-        Node reversedNode = list.reverseBetween(list.head, 3, 4);
+//        Node reversedNode = list.reverseBetween(list.head, 3, 4);
+        Node reversedNode = list.reverse(list.head);
         System.out.println(reversedNode);
     }
 
 
+    public static Node reverse(Node head) {
+        if (head == null)
+            return null;
+        Node newList = head;
+        int size = 0;
+        Node prev = null;
+        Node curr = head;
+
+        while(newList != null) {
+            Node tempNext = newList.next;
+            curr.next = prev;
+            prev = curr;
+            curr = tempNext;
+
+            newList = tempNext;
+        }
+
+        return prev;
+    }
     // 8--->1-->2--->3-----4--->5----6---> <NULL>
     public Node reverseBetween(Node head, int left, int right) {
         Node currentNode = head;
