@@ -7,7 +7,8 @@ public class TopView_BinaryTree {
 
     public static void getTopView(TreeNode root) {
 
-        traverseInTree_using_levelOrder(root);
+//        traverseInTree_using_levelOrder(root);
+        topView(root);
 
     }
 
@@ -60,4 +61,45 @@ public class TopView_BinaryTree {
         }
     }
 
+
+    public static ArrayList<Integer> topView(TreeNode root)
+    {
+
+        // add your code
+        Map<Integer, Integer> map = new TreeMap<>();
+        ArrayList<Integer> list = new ArrayList<>();
+
+        Queue<Pair> queue = new LinkedList<>();
+        queue.add(new Pair(0, root));
+        queue.add(null);
+        map.put(0, root.data);
+        while(!queue.isEmpty()) {
+            Pair current = queue.poll();
+            if (current == null) {
+                if (queue.isEmpty())
+                    break;
+                queue.add(null);
+                // System.out.println();
+            } else {
+                // System.out.println(current.node.data);
+                if (current.node.left != null) {
+                    if (map.get(current.hd-1) == null) {
+                        map.put(current.hd - 1, current.node.left.data);
+                    }
+                    queue.add(new Pair(current.hd - 1, current.node.left));
+                }
+                if (current.node.right != null) {
+                    if (map.get(current.hd + 1) == null) {
+                        map.put(current.hd + 1, current.node.right.data);
+                    }
+                    queue.add(new Pair(current.hd + 1, current.node.right));
+                }
+            }
+
+        }
+        map.forEach((k, v) -> {
+            list.add(v);
+        });
+        return list;
+    }
 }

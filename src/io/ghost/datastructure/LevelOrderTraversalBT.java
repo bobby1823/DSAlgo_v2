@@ -1,6 +1,8 @@
 package io.ghost.datastructure;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import static io.ghost.datastructure.HeightOfBinaryTree.heightOfBT;
@@ -63,5 +65,70 @@ public class LevelOrderTraversalBT {
                 }
             }
         }
+    }
+
+    public static List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> list = new ArrayList<>();
+        int level = 0;
+        if (root == null)
+            return list;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        queue.add(null);
+
+
+        Queue<Integer> queue2 = new LinkedList<>();
+
+        while(!queue.isEmpty()) {
+            TreeNode cur = queue.poll();
+            if (cur == null) {
+                if (queue.isEmpty() && !queue2.isEmpty()) {
+                    List<Integer> list1 = new ArrayList<>();
+                    while (!queue2.isEmpty()) {
+                        int a = queue2.poll();
+                        list1.add(a);
+                    }
+                    list.add(list1);
+                    return list;
+                }
+                queue.add(null);
+
+                List<Integer> list1 = new ArrayList<>();
+                while (!queue2.isEmpty()) {
+                    int a = queue2.poll();
+                    list1.add(a);
+                }
+                list.add(list1);
+            } else {
+                queue2.add(cur.data);
+
+                if (queue.isEmpty()) {
+                    // List<Integer> list1 = new ArrayList<>();
+                    //   while (!queue2.isEmpty()) {
+                    //       int a = queue2.poll();
+                    //       list1.add(a);
+                    //   }
+                    // list.add(list1);
+                    if (cur.left != null) {
+                        queue.add(cur.left);
+                    }
+                    if (cur.right != null) {
+                        queue.add(cur.right);
+                    }
+                } else {
+                    if (cur.left != null) {
+                        // queue2.add(cur.left.val);
+                        queue.add(cur.left);
+                    }
+                    if (cur.right != null) {
+                        queue.add(cur.right);
+                        // queue2.add(cur.right.val);
+                    }
+                }
+            }
+        }
+        // System.out.println(list.toString());
+        return list;
     }
 }

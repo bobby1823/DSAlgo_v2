@@ -9,6 +9,7 @@ import static io.ghost.datastructure.DiameterOfBinaryTree.diameterOfBT;
 import static io.ghost.datastructure.FloorValue_CellValue_BinaryTree.floorValue_V1;
 import static io.ghost.datastructure.FloorValue_CellValue_BinaryTree.floorValue_V2;
 import static io.ghost.datastructure.Left_Right_view_BinaryTree.*;
+import static io.ghost.datastructure.LevelOrderTraversalBT.levelOrder;
 import static io.ghost.datastructure.LevelOrderTraversalBT.printCurrentLevelV2;
 import static io.ghost.datastructure.LevelOrderTraversalBinaryTree_HashMap.printLevelOrderTraversal_usingHashMap;
 import static io.ghost.datastructure.LowestCommonAncestorBinaryTree.lowestCommonAncestor_V1;
@@ -28,9 +29,9 @@ public class Tree {
         sc = new Scanner(System.in);
         TreeNode root = createTree();
 //        preOrderTraversal(root);
-        postOrderTraversal(root);
+//        postOrderTraversal(root);
 //        printRightMostView(root);
-//        getTopView(root);
+        getTopView(root);
 //        getBottomView(root);
 //        System.out.println("Diameter of B Tree: " +diameterOfBT(root));
 //        lowestCommonAncestor_V1(root, 1, 3);
@@ -49,6 +50,7 @@ public class Tree {
 //        System.out.println("Size of Binary Tree: " + sizeOfBinaryTree(root));
 //        System.out.println("Maximum integer in Binary Tree: " + maxInBinaryTree(root));
 //        printCurrentLevelV2(root);
+        System.out.println(levelOrder(root));
         // print using hashmap and inorder traversal of Binary Tree
 //        printLevelOrderTraversal_usingHashMap(root);
     }

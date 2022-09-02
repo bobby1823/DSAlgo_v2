@@ -6,7 +6,7 @@ import java.util.*;
 public class TopolocalBFS_KahnAlgo {
 
     public static void main(String[] args) {
-
+        ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
     }
 
     // By creating one extra array, inDegree which stores each in Degree of each element.
