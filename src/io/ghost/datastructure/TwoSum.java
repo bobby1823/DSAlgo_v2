@@ -13,7 +13,6 @@ public class TwoSum {
 
     public static int[] rotate(int[] nums, int k) {
         int[] sol = new int[2];
-        HashMap<Integer, Integer> map = new HashMap<>();
         // Optimal Solution
 
 //        for (int i=0;i<nums.length;i++) {
@@ -42,21 +41,15 @@ public class TwoSum {
 //            }
 //        }
         // Approach 2
-        int start = 0;
-        int curSum = 0;
-        int end = -1;
-//        10,15,-5,15,-10,5
-        for (int i = 0; i < nums.length; i++) {
-            curSum += nums[i];
-            if (map.containsKey(curSum - k)) {
-                start = map.get(curSum-k)+1;
-                end = i;
-                sol[0] = start; sol[1] = end;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i=0;i<nums.length;i++) {
+            Integer requiredNum = (Integer) k-nums[i];
+            if (map.containsKey(requiredNum)) {
+                sol[0] = i; sol[1]=map.get(requiredNum);
+                return sol;
             }
-
-            map.put(curSum,i);
+            map.put(nums[i],i);
         }
-
 //        System.out.println(sol[0] +" "+ sol[1]);
         return sol;
     }

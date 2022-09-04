@@ -31,6 +31,7 @@ public class LongestSubstring_with_K_Replacement {
      * @param str
      * @param k
      * @return
+     * // sayanta k=2
      */
     public static int find(String str, int k) {
         int windowLen = 0, windowStart = 0, windowEnd = 0, maxCharCount = 0;
